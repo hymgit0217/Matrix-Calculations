@@ -20,6 +20,7 @@ def cholesky_decomposition(A):
     n = A.shape[0] # 矩阵A的阶数
     G = np.zeros_like(A, dtype=complex) # 初始化下三角阵
 
+    # 算法的核心部分，可以比较一下算法公式中的求和号如何转换为循环程序
     for i in range(n):
         # 对角线元素 g_ii，先行计算
         sum_g2 = sum(G[i, k] * G[i, k].conj() for k in range(i)) # 计算g_i1,g_i2,...,g_i,i-1的平方和
