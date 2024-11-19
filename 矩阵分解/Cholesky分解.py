@@ -14,11 +14,11 @@ def cholesky_decomposition(A):
         下三角矩阵 G，使得 A = G * G.H
     """
     # 检查矩阵是否Hermite
-    if not np.allclose(A, A.conj().T):
-        raise ValueError("输入矩阵不是Hermite矩阵")
+    if not np.allclose(A, A.conj().T): # .conj()用于复矩阵取共轭，.T用于矩阵取转置，np.allclose()用于判断是否几乎相等（允许浮点数误差）
+        raise ValueError("输入矩阵不是Hermite矩阵") # 用于抛出异常关键字
     
     n = A.shape[0] # 矩阵A的阶数
-    G = np.zeros_like(A, dtype=complex) # 初始化下三角阵
+    G = np.zeros_like(A, dtype=complex) # 初始化下三角阵，复数形式
 
     # 算法的核心部分，可以比较一下算法公式中的求和号如何转换为循环程序
     for i in range(n):
